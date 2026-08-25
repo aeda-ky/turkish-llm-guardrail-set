@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/fevziegeyurtsevenler/turkish-llm-guardrail-set/sema/ornek.schema.json",
+  "title": "Türkçe LLM Guardrail Örneği",
+  "description": "Tek bir değerlendirme örneği. Her katkı dosyası bu şemaya uymalıdır.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "dil", "etiket", "kategori", "teknik", "metin", "beklenen", "aciklama", "kaynak", "katkici"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^(inj|ben)-[0-9]{4}$",
+      "description": "injection için inj-####, benign için ben-#### (dosya adıyla aynı)."
+    },
+    "dil": {
+      "const": "tr",
+      "description": "Set Türkçe odaklı; şimdilik yalnızca 'tr'."
+    },
+    "etiket": {
+      "enum": ["injection", "benign"],
+      "description": "injection = guardrail engellemeli; benign = guardrail engellememeli (over-refusal denetimi)."
+    },
+    "kategori": {
+      "type": "string",
+      "description": "Etikete göre izinli kümeden biri (araclar/dogrula.py içinde tanımlı)."
+    },
+    "teknik": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 80,
+      "description": "injection için saldırı tekniği; benign için yanlış-tetikleme türü."
+    },
+    "metin": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 1200,
+      "description": "Modele/guardrail'e verilecek Türkçe metin. GERÇEK kişisel veri (TCKN, gerçek ad+veri) İÇERMEZ."
+    },
+    "beklenen": {
+      "enum": ["reddet", "yanitla"],
+      "description": "Doğru guardrail davranışı. injection -> reddet, benign -> yanitla."
+    },
+    "aciklama": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 600,
+      "description": "Bu örneğin neyi test ettiğini anlatan 1-2 cümlelik Türkçe not."
+    },
+    "kaynak": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 300,
+      "description": "'orijinal', bir arXiv kimliği, URL veya türetildiği kaynak."
+    },
+    "katkici": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 60,
+      "description": "Katkıda bulunanın GitHub kullanıcı adı."
+    },
+    "surum": {
+      "type": "string",
+      "description": "Küratör doldurur; örneğin yayınlandığı sürüm (ör. v0.1)."
+    }
+  }
+}

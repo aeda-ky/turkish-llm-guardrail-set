@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+title: "Türkçe LLM Guardrail Değerlendirme Seti"
+message: "Bu seti kullanırsanız lütfen aşağıdaki gibi atıf verin."
+type: dataset
+authors:
+  - given-names: "Fevzi Ege"
+    family-names: "Yurtsevenler"
+    orcid: "https://orcid.org/0009-0008-6518-8944"
+    affiliation: "AltaySec"
+  - name: "AltaySec ve katkıda bulunanlar"
+repository-code: "https://github.com/fevziegeyurtsevenler/turkish-llm-guardrail-set"
+abstract: >-
+  Türkçe büyük dil modeli guardrail'lerini değerlendirmek için açık
+  bir örnek seti: bloklanması gereken prompt injection / jailbreak
+  saldırıları ve masum olduğu hâlde yanlışlıkla bloklanan (over-refusal)
+  Türkçe istekler. Türkçe'ye özgü casefold ve morfoloji istismarları ile
+  over-refusal asimetrisine odaklanır.
+keywords:
+  - "prompt injection"
+  - "jailbreak"
+  - "over-refusal"
+  - "guardrail"
+  - "LLM security"
+  - "Turkish NLP"
+  - "AI safety"
+license: "CC-BY-SA-4.0"

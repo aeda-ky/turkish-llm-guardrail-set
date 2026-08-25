@@ -1,0 +1,13 @@
+# Üretilen birleşik veri — kaynağın tek doğruluğu veri/ klasörü; PR'lar burada çakışmasın
+dataset.jsonl
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS / editör
+.DS_Store
+.idea/
+.vscode/
